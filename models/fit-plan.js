@@ -56,15 +56,15 @@ const fitnessSchema = new Schema({
 );
 
 fitnessSchema.virtual("totalDuration").get(function() {
-  return this.exercises.reduce((total, fitness) => {
+  return this.exercises.reduce((total, exercise) => {
     return total + exercise.duration;
   }, 0)
 });
 
 
 
-const fitness = mongoose.model("Fitness", fitnessSchema);
+const Fitness = mongoose.model("Fitness", fitnessSchema);
 
-module.exports = Exercise;
+module.exports = Fitness;
 
 
