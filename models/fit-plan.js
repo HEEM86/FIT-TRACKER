@@ -7,61 +7,64 @@ const fitnessSchema = new Schema({
   day: {
   type: Date,
   default: Date.now()
-  required: "Enter the date"
 
   },
+  exercise: [{
 
-  exercise: {
+    type: {
     type: String,
     trim: true,
-    required: "exe"
+    required: "Enter a exercise movement"
 
+    },
   name: {
     type: String,
     trim: true,
     required: "Enter a name"
+
   },
   duration: {
     type: String,
     trim: true,
     required: "Enter duration time"
+
   },
   weight: {
     type: Number,
-    required: "Enter current weight"
   },
   sets: {
   type: Number,
-  required: "Enter number of sets"
 
   },
   reps: {
   type: Number,
-  required: "Enter number of reps"
 
   },
   distance: {
   type: Number,
   required: "Enter distance range"
-  }
-  });
+
+  },
+}]
 
 },
 {
-  tooJSON:{
+  toJSON:{
     virtuals: true
   }
 }  
-};
+);
 
 fitnessSchema.virtual("totalDuration").get(function() {
-  return this.fitness.reduce((total, fitness) => {
-    return total + fitness.duration;
+  return this.exercises.reduce((total, fitness) => {
+    return total + exercise.duration;
   }, 0)
 });
 
 
 
-const Transaction = mongoose.model("Fitness", transactionSchema);
+const fitness = mongoose.model("Fitness", fitnessSchema);
 
-module.exports = Transaction;
+module.exports = Exercise;
+
+

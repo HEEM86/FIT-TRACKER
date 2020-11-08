@@ -2,7 +2,7 @@ const router = require("express").Router();
 const Fitness = require("../models/fit-plan.js");
 
 router.post("/api/fitness", ({ body }, res) => {
-  Fitness.create(body)
+  Exercise.create(body)
     .then(dbFitness => {
       res.json(dbFitness);
     })
@@ -11,8 +11,8 @@ router.post("/api/fitness", ({ body }, res) => {
     });
 });
 
-router.put("/api/fitness/:id", ({ body, params }, res) => {
-  Fitness.findByIdAndUpdate(
+router.put("/api/workout/:id", ({ body, params }, res) => {
+  Exercise.findByIdAndUpdate(
   params.id,
   {$push:{exercises: body}},
   {new: true, runValidators: true}  
@@ -26,7 +26,7 @@ router.put("/api/fitness/:id", ({ body, params }, res) => {
 });
 
 router.get("/api/workout/range", (req, res) => {
-  Workout.find().limit(4)
+  Workout.find().limit(10)
     .then(dbFitness => {
       res.json(dbFitness);
     })
@@ -46,5 +46,7 @@ router.get("/api/workout/range", (req, res) => {
        
         
 });
-
+}
 module.exports = router;
+
+
