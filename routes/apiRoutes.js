@@ -24,9 +24,6 @@ router.post("/api/workouts", ({ body }, res) => {
   });
 
 
-  
-
-
     router.get("/api/workouts/range", (req, res) => {
     Fitness.find().limit(10)
     .then(dbWorkout => {
