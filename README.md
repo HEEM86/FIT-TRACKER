@@ -5,7 +5,7 @@
 
 ## Description :bulb:
 
-The FIT-Tracker app allows the user to create customize workout system to achieve optimal results
+The FIT-Tracker app allows the user to create customized workout system to achieve optimal results
 
 **The user can add the following information to create their workout and track their progress**
 
